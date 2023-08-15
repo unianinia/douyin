@@ -18,9 +18,9 @@ func TestPublishAction(t *testing.T) {
 
 	payload := &bytes.Buffer{}
 	writer := multipart.NewWriter(payload)
-	file, errFile1 := os.Open("./videos/test2.mp4")
+	file, errFile1 := os.Open("./videos/test.mp4")
 	defer file.Close()
-	part1, errFile1 := writer.CreateFormFile("data", filepath.Base("test2.mp4"))
+	part1, errFile1 := writer.CreateFormFile("data", filepath.Base("test.mp4"))
 	_, errFile1 = io.Copy(part1, file)
 	if errFile1 != nil {
 		fmt.Println(errFile1)

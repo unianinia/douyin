@@ -24,6 +24,23 @@ func TestAddNewFavorite(t *testing.T) {
 	fmt.Println(ok)
 }
 
+func TestDeleteFavorite(t *testing.T) {
+	Init()
+	cache.Init()
+
+	msg := Favorites{
+		UserId:  1010,
+		VideoId: 1018,
+	}
+
+	ok, err := DeleteFavorite(context.Background(), &msg)
+	if err != nil {
+		t.Errorf(err.Error())
+		return
+	}
+	fmt.Println(ok)
+}
+
 func TestGetUserFavoriteCountById(t *testing.T) {
 	Init()
 	cache.Init()
@@ -58,4 +75,21 @@ func TestUserFavoriteIdList(t *testing.T) {
 		return
 	}
 	fmt.Printf("%#v\n", videos)
+}
+
+func TestCheckFavoriteExist(t *testing.T) {
+	Init()
+	cache.Init()
+
+	msg := Favorites{
+		UserId:  1010,
+		VideoId: 1018,
+	}
+
+	ok, err := CheckFavoriteExist(context.Background(), msg.UserId, msg.VideoId)
+	if err != nil {
+		t.Errorf(err.Error())
+		return
+	}
+	fmt.Println(ok)
 }

@@ -42,7 +42,7 @@ func AddNewFavorite(ctx context.Context, favorite *Favorites) (bool, error) {
 
 // DeleteFavorite 删除点赞
 func DeleteFavorite(ctx context.Context, favorite *Favorites) (bool, error) {
-	err := dbConn.WithContext(ctx).Where("video_id = ? AND user_id = ?", ctx, favorite.VideoId, ctx, favorite.UserId).Delete(favorite).Error
+	err := dbConn.WithContext(ctx).Where("video_id = ? AND user_id = ?", favorite.VideoId, favorite.UserId).Delete(favorite).Error
 	if err != nil {
 		return false, err
 	}
@@ -64,13 +64,14 @@ func CheckFavoriteExist(ctx context.Context, userId, videoId int64) (bool, error
 	if rdFavorite.CheckFavorite(ctx, userId) {
 		return rdFavorite.ExistFavorite(ctx, userId, videoId), nil
 	}
-	var sum int64
+
+	var favorite Favorites
 	err := dbConn.WithContext(ctx).Table(constants.FavoriteTableName).
-		Where("video_id = ? AND user_id = ?", videoId, userId).Count(&sum).Error
+		Where("video_id = ? AND user_id = ?", videoId, userId).Find(&favorite).Error
 	if err != nil {
 		return false, err
 	}
-	if sum == 0 {
+	if favorite == (Favorites{}) {
 		return false, nil
 	}
 	return true, nil

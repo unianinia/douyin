@@ -46,7 +46,7 @@ func (a *Actor) FavoriteActionAdd(ctx context.Context, favorites <-chan amqp.Del
 				UserId:  int64(userId),
 				VideoId: int64(videoId),
 			}); err != nil {
-				klog.Errorf("add new favorite to db：(%v)", err)
+				klog.Errorf("delete new favorite to db：(%v)", err)
 			}
 		}
 	}
