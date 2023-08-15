@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="041b767b-afc6-4c5e-9562-2c7e02c97c59" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.20.6" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/kitex_gen/comment/k-consts.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pkg/errno/errno.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pkg/ffmpeg/ffmpeg_test.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pkg/minio/minio.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pkg/mw/common.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/test/comment_api_test.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/test/favorite_api_test.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/test/message_api_test.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/test/publish_api_test.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/test/user_api_test.go" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2TRhdEEyqTKI7Z710bFvxISf7IS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/huangwenxuan/Downloads/douyin@hwx/douyin/cmd/favorite&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cmd/favorite" />
+      <recent name="$PROJECT_DIR$/cmd/user" />
+      <recent name="$PROJECT_DIR$/cmd/relation" />
+      <recent name="$PROJECT_DIR$/cmd/publish" />
+      <recent name="$PROJECT_DIR$/cmd/message" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cmd/feed" />
+      <recent name="$PROJECT_DIR$/cmd" />
+      <recent name="$PROJECT_DIR$/cmd/comment" />
+      <recent name="$PROJECT_DIR$/feed" />
+      <recent name="$PROJECT_DIR$/cmd/favorite" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build douyin/cmd/user">
+    <configuration name="go build douyin/cmd/favorite" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="douyin" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="douyin/cmd/favorite" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/favorite/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build douyin/cmd/message" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="douyin" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="douyin/cmd/message" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/message/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build douyin/cmd/publish" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="douyin" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="douyin/cmd/publish" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/publish/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build douyin/cmd/relation" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="douyin" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="douyin/cmd/relation" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/relation/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build douyin/cmd/user" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="douyin" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="douyin/cmd/user" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/user/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build douyin/cmd/user" />
+        <item itemvalue="Go Build.go build douyin/cmd/relation" />
+        <item itemvalue="Go Build.go build douyin/cmd/publish" />
+        <item itemvalue="Go Build.go build douyin/cmd/message" />
+        <item itemvalue="Go Build.go build douyin/cmd/favorite" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
