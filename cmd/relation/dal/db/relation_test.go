@@ -16,7 +16,7 @@ func TestAddNewRelation(t *testing.T) {
 		FollowerId: 1001,
 	}
 
-	ok, err := AddNewRelation(&r)
+	ok, err := AddNewRelation(context.Background(), &r)
 	if err != nil {
 		t.Errorf("add error: %v\n", err)
 		return
@@ -38,7 +38,7 @@ func TestDeleteRelation(t *testing.T) {
 		FollowerId: 1002,
 	}
 
-	ok, err := DeleteRelation(&r)
+	ok, err := DeleteRelation(context.Background(), &r)
 	if err != nil {
 		t.Errorf("delete error: %v\n", err)
 		return

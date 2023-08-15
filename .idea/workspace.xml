@@ -6,13 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="041b767b-afc6-4c5e-9562-2c7e02c97c59" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/favorite/dal/db/favorite.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/favorite/dal/db/favorite.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/favorite/dal/db/favorite_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/favorite/dal/db/favorite_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/favorite/dal/mq/amqpclt/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/favorite/dal/mq/amqpclt/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/ffmpeg/ffmpeg.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/ffmpeg/ffmpeg.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/favorite_api_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/favorite_api_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/publish_api_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/publish_api_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/relation/dal/db/relation_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/relation/dal/db/relation_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/.bloomcycle.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/.bloomcycle.bin/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/.usage-cache.bin/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/.usage.json/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/.usage.json/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/images/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/images/.usage-cache.bin/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/videos/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/videos/.usage-cache.bin/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/user_api_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/user_api_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +85,7 @@
       <recent name="$PROJECT_DIR$/cmd/favorite" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build douyin/cmd/favorite">
+  <component name="RunManager" selected="Go Test.TestUserRegister in douyin/test">
     <configuration name="go build douyin/cmd/favorite" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="douyin" />
       <working_directory value="$PROJECT_DIR$" />
@@ -93,15 +93,6 @@
       <package value="douyin/cmd/favorite" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/cmd/favorite/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build douyin/cmd/user" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="douyin" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="douyin/cmd/user" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/cmd/user/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="TestCheckFavoriteExist in douyin/cmd/favorite/dal/db" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -140,6 +131,18 @@
       <pattern value="^\QTestFavoriteAction\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestUserRegister in douyin/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="douyin" />
+      <working_directory value="$PROJECT_DIR$/test" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="douyin/test" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestUserRegister\E$" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -148,11 +151,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestUserRegister in douyin/test" />
         <item itemvalue="Go Build.go build douyin/cmd/favorite" />
         <item itemvalue="Go Test.TestCheckFavoriteExist in douyin/cmd/favorite/dal/db" />
         <item itemvalue="Go Test.TestFavoriteAction in douyin/test" />
         <item itemvalue="Go Test.TestDeleteFavorite in douyin/cmd/favorite/dal/db" />
-        <item itemvalue="Go Build.go build douyin/cmd/user" />
       </list>
     </recent_temporary>
   </component>

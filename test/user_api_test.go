@@ -13,7 +13,7 @@ import (
 
 // 测试用户注册接口
 func TestUserRegister(t *testing.T) {
-	url := serverAddr + "/douyin/user/register/?username=hwx&password=hwx271828."
+	url := serverAddr + "/douyin/user/register/?username=test&password=123456abc."
 	method := "POST"
 
 	c := &http.Client{}
@@ -22,7 +22,7 @@ func TestUserRegister(t *testing.T) {
 		fmt.Println(err)
 		return
 	}
-	// req.Header.Add("User-Agent", "Apifox/1.0.0 (https://apifox.com)")
+	req.Header.Add("User-Agent", "Apifox/1.0.0 (https://apifox.com)")
 
 	res, err := c.Do(req)
 	if err != nil {
