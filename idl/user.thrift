@@ -35,7 +35,7 @@ struct UserInfoRequest {
 struct UserInfoResponse {
     1: required i32 status_code
     2: required string status_msg
-    3: required common.User user_info;
+    3: required common.User user;
 }
 
 struct UserExistRequest {

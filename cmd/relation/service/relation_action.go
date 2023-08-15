@@ -3,9 +3,11 @@ package service
 import (
 	"context"
 	"douyin/cmd/api/rpc"
-	"douyin/cmd/relation/dal/db"
+	"douyin/cmd/relation/dal/mq"
 	"douyin/kitex_gen/relation"
 	"douyin/pkg/errno"
+	"strconv"
+	"strings"
 )
 
 const (
@@ -24,39 +26,29 @@ func NewRelationActionService(ctx context.Context) *RelationActionService {
 	}
 }
 
-func (s *RelationActionService) RelationAction(req *relation.RelationActionRequest) (bool, error) {
+func (s *RelationActionService) RelationAction(req *relation.RelationActionRequest) error {
 	if req.ActionType != FOLLOW && req.ActionType != UNFOLLOW {
-		return false, errno.ParamErr
+		return errno.ParamErr
 	}
 
 	if req.ToUserId == req.CurrentUserId {
-		return false, errno.ParamErr
+		return errno.ParamErr
 	}
 
 	exist, err := rpc.UserExist(s.ctx, req.ToUserId)
 	if err != nil {
-		return false, err
+		return err
 	}
 	if !exist {
-		return false, errno.UserIsNotExistErr
+		return errno.UserIsNotExistErr
 	}
 
-	r := &db.Relation{
-		UserId:     req.ToUserId,
-		FollowerId: req.CurrentUserId,
-	}
+	sb := strings.Builder{}
+	sb.WriteString(strconv.Itoa(int(req.CurrentUserId)))
+	sb.WriteString("&")
+	sb.WriteString(strconv.Itoa(int(req.ToUserId)))
+	sb.WriteString("&")
+	sb.WriteString(strconv.Itoa(int(req.ActionType)))
 
-	if req.ActionType == FOLLOW {
-		exist, _ = db.CheckRelationFollowExist(s.ctx, r.FollowerId, r.UserId)
-		if exist {
-			return false, errno.FollowRelationAlreadyExistErr
-		}
-		return db.AddNewRelation(r)
-	} else {
-		exist, _ = db.CheckRelationFollowExist(s.ctx, r.UserId, r.FollowerId)
-		if !exist {
-			return false, errno.FollowRelationNotExistErr
-		}
-		return db.DeleteRelation(r)
-	}
+	return mq.AddActor.Publish(s.ctx, sb.String())
 }

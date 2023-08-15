@@ -2,7 +2,7 @@ package mq
 
 import (
 	"context"
-	"douyin/cmd/comment/dal/mq/amqpclt"
+	"douyin/cmd/favorite/dal/mq/amqpclt"
 	"fmt"
 
 	"douyin/pkg/constants"
@@ -20,7 +20,7 @@ func Init() {
 	if err != nil {
 		klog.Fatal("cannot dial amqp", err)
 	}
-	AddActor, err = amqpclt.NewActor(amqpConn, "comment_action")
+	AddActor, err = amqpclt.NewActor(amqpConn, "favorite_action")
 	if err != nil {
 		klog.Fatal("cannot create add actor", err)
 	}

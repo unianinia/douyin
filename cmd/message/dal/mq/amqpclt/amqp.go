@@ -46,7 +46,7 @@ func (a *Actor) Publish(_ context.Context, message string) error {
 }
 
 // Consumer 消费消息
-func (a *Actor) Consumer(_ context.Context) {
+func (a *Actor) Consumer(ctx context.Context) {
 	// 队列名 持久化 自动删除 exclusive 是否阻塞 额外参数
 	_, err := a.channel.QueueDeclare(a.queueName,
 		false, false, false, false, nil)
@@ -64,7 +64,7 @@ func (a *Actor) Consumer(_ context.Context) {
 	var forever chan struct{}
 
 	// 开启消费消息协程
-	go a.MessageActionAdd(msgs)
+	go a.MessageActionAdd(ctx, msgs)
 
 	<-forever
 }

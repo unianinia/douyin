@@ -62,7 +62,7 @@ func (s *CommentActionService) CommentAction(req *comment.CommentActionRequest) 
 		if err != nil {
 			return c, err
 		}
-		c.User = resp.UserInfo
+		c.User = resp.User
 	} else {
 		err := db.DeleteCommentById(s.ctx, c.Id)
 		if err != nil {

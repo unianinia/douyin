@@ -8,7 +8,7 @@ import (
 )
 
 func TestFavoriteAction(t *testing.T) {
-	url := serverAddr + "/douyin/favorite/action/?token=" + userToken + "&video_id=1001&action_type=1"
+	url := serverAddr + "/douyin/favorite/action/?token=" + userToken + "&video_id=1017&action_type=1"
 	method := "POST"
 
 	client := &http.Client{}

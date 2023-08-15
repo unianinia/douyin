@@ -3,9 +3,11 @@ package service
 import (
 	"context"
 	"douyin/cmd/api/rpc"
-	"douyin/cmd/favorite/dal/db"
+	"douyin/cmd/favorite/dal/mq"
 	"douyin/kitex_gen/favorite"
 	"douyin/pkg/errno"
+	"strconv"
+	"strings"
 )
 
 type FavoriteActionService struct {
@@ -19,37 +21,20 @@ func NewFavoriteActionService(ctx context.Context) *FavoriteActionService {
 }
 
 func (s *FavoriteActionService) FavoriteAction(req *favorite.FavoriteActionRequest) error {
-	exist, _ := rpc.UserExist(s.ctx, req.UserId)
-	if !exist {
-		return errno.UserIsNotExistErr
+	exist, err := rpc.PublishExist(s.ctx, req.VideoId)
+	if err != nil {
+		return err
 	}
-	exist, _ = rpc.PublishExist(s.ctx, req.VideoId)
 	if !exist {
 		return errno.VideoIsNotExistErr
 	}
 
-	if req.ActionType == 1 {
-		ok, err := db.AddNewFavorite(s.ctx, &db.Favorites{
-			UserId:  req.UserId,
-			VideoId: req.VideoId,
-		})
-		if err != nil {
-			return err
-		}
-		if !ok {
-			return errno.FavoriteActionErr
-		}
-	} else {
-		ok, err := db.DeleteFavorite(s.ctx, &db.Favorites{
-			UserId:  req.UserId,
-			VideoId: req.VideoId,
-		})
-		if err != nil {
-			return err
-		}
-		if !ok {
-			return errno.FavoriteActionErr
-		}
-	}
-	return nil
+	sb := strings.Builder{}
+	sb.WriteString(strconv.Itoa(int(req.UserId)))
+	sb.WriteString("&")
+	sb.WriteString(strconv.Itoa(int(req.VideoId)))
+	sb.WriteString("&")
+	sb.WriteString(strconv.Itoa(int(req.ActionType)))
+
+	return mq.AddActor.Publish(s.ctx, sb.String())
 }

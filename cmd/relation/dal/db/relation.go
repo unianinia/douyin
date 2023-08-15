@@ -24,13 +24,12 @@ func (Relation) TableName() string {
 }
 
 // AddNewRelation 添加用户关系
-func AddNewRelation(relation *Relation) (bool, error) {
-	err := dbConn.Create(relation).Error
+func AddNewRelation(ctx context.Context, relation *Relation) (bool, error) {
+	err := dbConn.WithContext(ctx).Create(relation).Error
 	if err != nil {
 		return false, err
 	}
 
-	ctx := context.Background()
 	if rdFollows.CheckFollow(ctx, relation.FollowerId) {
 		rdFollows.AddFollow(ctx, relation.UserId, relation.FollowerId)
 	}
@@ -43,14 +42,13 @@ func AddNewRelation(relation *Relation) (bool, error) {
 }
 
 // DeleteRelation 删除用户关系
-func DeleteRelation(relation *Relation) (bool, error) {
-	err := dbConn.Where("user_id = ? AND follower_id = ?",
+func DeleteRelation(ctx context.Context, relation *Relation) (bool, error) {
+	err := dbConn.WithContext(ctx).Where("user_id = ? AND follower_id = ?",
 		relation.UserId, relation.FollowerId).Delete(relation).Error
 	if err != nil {
 		return false, err
 	}
 
-	ctx := context.Background()
 	if rdFollows.CheckFollow(ctx, relation.FollowerId) {
 		rdFollows.DelFollower(ctx, relation.UserId, relation.FollowerId)
 	}
@@ -227,7 +225,7 @@ func GetFriendIdList(ctx context.Context, userId int64) ([]int64, error) {
 		if err != nil {
 			return *new([]int64), err
 		}
-		addFollowerRelationToRedis(userId, following)
+		addFollowRelationToRedis(userId, following)
 	}
 
 	if !rdFollows.CheckFollower(ctx, userId) {

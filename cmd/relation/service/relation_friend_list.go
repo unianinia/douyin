@@ -56,7 +56,7 @@ func (s *RelationFriendListService) FriendList(req *relation.RelationFriendListR
 			if e != nil {
 				errChan <- e
 			} else {
-				userChan <- *resp.UserInfo
+				userChan <- *resp.User
 			}
 		}(id)
 	}

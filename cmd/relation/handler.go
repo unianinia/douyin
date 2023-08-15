@@ -14,7 +14,7 @@ type RelationServiceImpl struct{}
 func (s *RelationServiceImpl) RelationAction(ctx context.Context, req *relation.RelationActionRequest) (resp *relation.RelationActionResponse, err error) {
 	resp = new(relation.RelationActionResponse)
 
-	_, err = service.NewRelationActionService(ctx).RelationAction(req)
+	err = service.NewRelationActionService(ctx).RelationAction(req)
 	r := pkg.BuildBaseResp(err)
 	resp.StatusCode = r.StatusCode
 	resp.StatusMsg = r.StatusMsg

@@ -2,15 +2,22 @@
 
 ## Introduction
 
+simple douyin
+
 ### Use Basic Features
 
 - Middleware、Rate Limiting、Request Retry、Timeout Control、Connection Multiplexing
+- Message Queue
+  - use **RabbitMQ** for asynchronous communication and module decoupling.
+- Memory Cache
+  - use **Redis** to cache hot data.
+
 - Tracing
-    - use jaeger to tracing
+  - use **jaeger** to tracing
 - Customized BoundHandler
-    - achieve CPU utilization rate customized bound handler
+  - achieve CPU utilization rate customized bound handler
 - Service Discovery and Register
-    - use [registry-etcd](https://github.com/kitex-contrib/registry-etcd) to discovery and register service
+  - use [registry-etcd](https://github.com/kitex-contrib/registry-etcd) to discovery and register service
 
 ### catalog introduce
 
@@ -92,3 +99,5 @@ chmod +x run.sh
 ### 9.Jaeger
 
 visit `http://127.0.0.1:16686/` on browser.
+
+hwx271828.

@@ -8,7 +8,7 @@ import (
 )
 
 func TestCommentAction(t *testing.T) {
-	url := serverAddr + "/douyin/comment/action/?token=" + userToken + "&video_id=1001&action_type=1&comment_text=test"
+	url := serverAddr + "/douyin/comment/action/?token=" + userToken + "&video_id=1014&action_type=1&comment_text=test"
 	method := "POST"
 
 	client := &http.Client{}

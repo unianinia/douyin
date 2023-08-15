@@ -79,7 +79,7 @@ func (s *FeedService) FeedAction(req *publish.FeedActionRequest) ([]*common.Vide
 			}
 			videoChan <- common.Video{
 				Id:            dbVideo.ID,
-				Author:        resp.UserInfo,
+				Author:        resp.User,
 				PlayUrl:       dbVideo.PlayURL,
 				CoverUrl:      dbVideo.CoverURL,
 				FavoriteCount: favoritedCount,

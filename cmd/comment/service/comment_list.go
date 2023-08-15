@@ -42,7 +42,7 @@ func (s *CommentListService) CommentList(req *comment.CommentListRequest) ([]*co
 	for _, c := range dbComments {
 		comments = append(comments, &comment.Comment{
 			Id:         c.ID,
-			User:       info.UserInfo,
+			User:       info.User,
 			Content:    &c.CommentText,
 			CreateDate: c.CreatedAt.Format("01-02"),
 		})

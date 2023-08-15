@@ -69,7 +69,7 @@ func (s *PublishVideoListService) PublishVideoList(req *publish.PublishVideoList
 				CoverUrl:     video.CoverURL,
 				Title:        video.Title,
 				CommentCount: count,
-				Author:       resp.UserInfo,
+				Author:       resp.User,
 			}
 
 		}(v)

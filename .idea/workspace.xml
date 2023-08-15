@@ -4,7 +4,48 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="041b767b-afc6-4c5e-9562-2c7e02c97c59" name="Changes" comment="" />
+    <list default="true" id="041b767b-afc6-4c5e-9562-2c7e02c97c59" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/cmd/favorite/dal/mq/amqpclt/amqp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmd/favorite/dal/mq/amqpclt/handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmd/favorite/dal/mq/init.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmd/relation/dal/mq/amqpclt/amqp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmd/relation/dal/mq/amqpclt/handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmd/relation/dal/mq/init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/handlers/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/handlers/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/comment/dal/mq/amqpclt/amqp.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/comment/dal/mq/amqpclt/amqp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/comment/dal/mq/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/comment/dal/mq/init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/comment/service/comment_action.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/comment/service/comment_action.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/comment/service/comment_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/comment/service/comment_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/favorite/dal/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/favorite/dal/init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/favorite/service/favorite_action.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/favorite/service/favorite_action.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/message/dal/mq/amqpclt/amqp.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/message/dal/mq/amqpclt/amqp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/message/dal/mq/amqpclt/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/message/dal/mq/amqpclt/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/publish/service/feed_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/publish/service/feed_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/publish/service/publish_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/publish/service/publish_info.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/publish/service/publish_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/publish/service/publish_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/publish/service/publish_video_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/publish/service/publish_video_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/relation/dal/db/relation.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/relation/dal/db/relation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/relation/dal/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/relation/dal/init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/relation/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/relation/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/relation/service/relation_action.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/relation/service/relation_action.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/relation/service/relation_follow_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/relation/service/relation_follow_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/relation/service/relation_follower_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/relation/service/relation_follower_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/relation/service/relation_friend_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/relation/service/relation_friend_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/user/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/user/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/user/service/user_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/user/service/user_info.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/idl/user.thrift" beforeDir="false" afterPath="$PROJECT_DIR$/idl/user.thrift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitex_gen/user/k-user.go" beforeDir="false" afterPath="$PROJECT_DIR$/kitex_gen/user/k-user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitex_gen/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/kitex_gen/user/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kitex_info.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/bootstrap.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/comment_api_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/comment_api_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/favorite_api_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/favorite_api_test.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +70,7 @@
     <setting file="file://$PROJECT_DIR$/pkg/minio/minio.go" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/pkg/mw/common.go" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/test/comment_api_test.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/test/common.go" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/test/favorite_api_test.go" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/test/message_api_test.go" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/test/publish_api_test.go" root0="SKIP_INSPECTION" />
@@ -42,30 +84,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/huangwenxuan/Downloads/douyin@hwx/douyin/cmd/favorite&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "/Users/huangwenxuan/GolandProjects/douyin/cmd/relation/dal",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/cmd/favorite" />
-      <recent name="$PROJECT_DIR$/cmd/user" />
-      <recent name="$PROJECT_DIR$/cmd/relation" />
-      <recent name="$PROJECT_DIR$/cmd/publish" />
-      <recent name="$PROJECT_DIR$/cmd/message" />
+      <recent name="$PROJECT_DIR$/cmd/relation/dal" />
+      <recent name="$PROJECT_DIR$/cmd/favorite/dal" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/cmd/comment/dal" />
+      <recent name="$PROJECT_DIR$/cmd/message/dal" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/cmd/feed" />
@@ -75,23 +117,14 @@
       <recent name="$PROJECT_DIR$/cmd/favorite" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build douyin/cmd/user">
-    <configuration name="go build douyin/cmd/favorite" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestUserInfo in douyin/test">
+    <configuration name="go build douyin/cmd/api" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="douyin" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="douyin/cmd/favorite" />
+      <package value="douyin/cmd/api" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/cmd/favorite/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build douyin/cmd/message" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="douyin" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="douyin/cmd/message" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/cmd/message/main.go" />
+      <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build douyin/cmd/publish" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -121,6 +154,18 @@
       <filePath value="$PROJECT_DIR$/cmd/user/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="TestUserInfo in douyin/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="douyin" />
+      <working_directory value="$PROJECT_DIR$/test" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="douyin/test" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestUserInfo\E$" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -129,11 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestUserInfo in douyin/test" />
         <item itemvalue="Go Build.go build douyin/cmd/user" />
+        <item itemvalue="Go Build.go build douyin/cmd/api" />
         <item itemvalue="Go Build.go build douyin/cmd/relation" />
         <item itemvalue="Go Build.go build douyin/cmd/publish" />
-        <item itemvalue="Go Build.go build douyin/cmd/message" />
-        <item itemvalue="Go Build.go build douyin/cmd/favorite" />
       </list>
     </recent_temporary>
   </component>

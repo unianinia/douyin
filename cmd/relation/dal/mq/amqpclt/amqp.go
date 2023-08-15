@@ -46,7 +46,7 @@ func (a *Actor) Publish(_ context.Context, relation string) error {
 }
 
 // Consumer 消费消息
-func (a *Actor) Consumer(_ context.Context) {
+func (a *Actor) Consumer(ctx context.Context) {
 	// 队列名 持久化 自动删除 exclusive 是否阻塞 额外参数
 	_, err := a.channel.QueueDeclare(a.queueName,
 		false, false, false, false, nil)
@@ -56,7 +56,7 @@ func (a *Actor) Consumer(_ context.Context) {
 	}
 
 	//队列名 消费者名 自动应答(自动的进行削峰处理) exclusive 自产自消 阻塞 额外参数
-	comments, err := a.channel.Consume(a.queueName, "",
+	relations, err := a.channel.Consume(a.queueName, "",
 		true, false, false, false, nil)
 	if err != nil {
 		klog.Errorf("cannot consume queue: %v", err)
@@ -64,7 +64,7 @@ func (a *Actor) Consumer(_ context.Context) {
 	var forever chan struct{}
 
 	// 开启消费消息协程
-	go a.CommentActionAdd(comments)
+	go a.RelationActionAdd(ctx, relations)
 
 	<-forever
 }

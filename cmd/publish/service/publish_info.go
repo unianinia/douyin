@@ -40,7 +40,7 @@ func (s *PublishInfoService) PublishInfo(req *publish.PublishInfoRequest) (*comm
 		return &video, err
 	}
 
-	video.Author = resp.UserInfo
+	video.Author = resp.User
 
 	return &video, err
 }

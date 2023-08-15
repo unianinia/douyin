@@ -12,7 +12,7 @@ import (
 )
 
 // MessageActionAdd 添加用户消息记录
-func (a *Actor) MessageActionAdd(msgs <-chan amqp.Delivery) {
+func (a *Actor) MessageActionAdd(ctx context.Context, msgs <-chan amqp.Delivery) {
 	for d := range msgs {
 		// 取出用户ID
 		params := strings.Split(string(d.Body), "&")
@@ -28,7 +28,7 @@ func (a *Actor) MessageActionAdd(msgs <-chan amqp.Delivery) {
 
 		klog.Infof("message option(%v,%v,%v)", userId, toUserId, Content)
 		// 执行SQL，注必须scan，该SQL才能被执行。
-		if _, err := db.AddNewMessage(context.Background(), &db.Message{
+		if _, err = db.AddNewMessage(ctx, &db.Message{
 			FromUserId: int64(userId),
 			ToUserId:   int64(toUserId),
 			Content:    Content,

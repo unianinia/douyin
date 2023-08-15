@@ -57,7 +57,7 @@ func (s *RelationFollowListService) FollowList(req *relation.RelationFollowListR
 			if e != nil {
 				errChan <- e
 			} else {
-				userChan <- *resp.UserInfo
+				userChan <- *resp.User
 			}
 		}(id)
 	}

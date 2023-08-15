@@ -390,7 +390,7 @@ func UserInfoHandler(ctx context.Context, c *app.RequestContext) {
 	SendUserInfoResponse(c, user.UserInfoResponse{
 		StatusCode: resp.StatusCode,
 		StatusMsg:  resp.StatusMsg,
-		UserInfo:   resp.UserInfo,
+		User:       resp.User,
 	})
 }
 

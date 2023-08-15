@@ -64,7 +64,7 @@ func (s *PublishListService) PublishList(req *publish.PublishListRequest) ([]*co
 			} else {
 				videoChan <- common.Video{
 					Id:            dbVideo.ID,
-					Author:        resp.UserInfo,
+					Author:        resp.User,
 					PlayUrl:       dbVideo.PlayURL,
 					CoverUrl:      dbVideo.CoverURL,
 					FavoriteCount: favoritedCount,

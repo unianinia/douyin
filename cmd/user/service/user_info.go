@@ -27,6 +27,9 @@ func (s *UserInfoService) UserInfo(req *user.UserInfoRequest) (*common.User, err
 
 	userInfo.Id = u.ID
 	userInfo.Name = u.UserName
+	userInfo.Avatar = &u.Avatar
+	userInfo.BackgroundImage = &u.BackgroundImage
+	userInfo.Signature = &u.Signature
 
 	errChan := make(chan error, 5)
 	defer close(errChan)

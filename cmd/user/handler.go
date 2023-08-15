@@ -59,7 +59,7 @@ func (s *UserServiceImpl) UserInfo(ctx context.Context, req *user.UserInfoReques
 	r := pkg.BuildBaseResp(err)
 	resp.StatusCode = r.StatusCode
 	resp.StatusMsg = r.StatusMsg
-	resp.UserInfo = info
+	resp.User = info
 
 	return
 }
