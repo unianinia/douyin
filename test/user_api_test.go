@@ -71,7 +71,7 @@ func TestUserLogin(t *testing.T) {
 // 测试用户信息接口
 func TestUserInfo(t *testing.T) {
 	token := userToken
-	url := serverAddr + "/douyin/user?user_id=1023&token=" + token
+	url := serverAddr + "/douyin/user?user_id=1020&token=" + token
 	method := "GET"
 
 	c := &http.Client{}
