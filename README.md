@@ -99,5 +99,3 @@ chmod +x run.sh
 ### 9.Jaeger
 
 visit `http://127.0.0.1:16686/` on browser.
-
-hwx271828.
