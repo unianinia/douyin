@@ -7,6 +7,7 @@ import (
 	"douyin/kitex_gen/comment"
 	"douyin/kitex_gen/user"
 	"douyin/pkg/errno"
+	"sync"
 )
 
 type CommentListService struct {
@@ -31,21 +32,52 @@ func (s *CommentListService) CommentList(req *comment.CommentListRequest) ([]*co
 		return comments, errno.CommentIsNotExistErr
 	}
 
-	info, err := rpc.UserInfo(s.ctx, &user.UserInfoRequest{
-		CurrentUserId: 0,
-		UserId:        req.UserId,
-	})
-	if err != nil {
-		return comments, err
+	num := len(dbComments)
+	commentChan := make(chan comment.Comment, num)
+	errChan := make(chan error, num)
+	doneChan := make(chan struct{})
+
+	go func() {
+		for {
+			select {
+			case c := <-commentChan:
+				comments = append(comments, &c)
+			case <-doneChan:
+				return
+			}
+		}
+	}()
+
+	var wg sync.WaitGroup
+	for _, c := range dbComments {
+		wg.Add(1)
+		go func(cmt *db.Comment) {
+			defer wg.Done()
+			resp, e := rpc.UserInfo(s.ctx, &user.UserInfoRequest{
+				CurrentUserId: req.UserId,
+				UserId:        cmt.UserId,
+			})
+			if e != nil {
+				errChan <- e
+			} else {
+				commentChan <- comment.Comment{
+					Id:         cmt.ID,
+					User:       resp.User,
+					Content:    &cmt.CommentText,
+					CreateDate: cmt.CreatedAt.Format("01-02"),
+				}
+			}
+		}(c)
 	}
 
-	for _, c := range dbComments {
-		comments = append(comments, &comment.Comment{
-			Id:         c.ID,
-			User:       info.User,
-			Content:    &c.CommentText,
-			CreateDate: c.CreatedAt.Format("01-02"),
-		})
+	wg.Wait()
+	doneChan <- struct{}{}
+
+	select {
+	case err = <-errChan:
+		return comments, err
+	default:
 	}
-	return comments, err
+
+	return comments, nil
 }

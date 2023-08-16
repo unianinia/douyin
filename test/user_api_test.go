@@ -13,7 +13,7 @@ import (
 
 // 测试用户注册接口
 func TestUserRegister(t *testing.T) {
-	url := serverAddr + "/douyin/user/register/?username=test&password=123456abc."
+	url := serverAddr + "/douyin/user/register/?username=test1&password=123456abc."
 	method := "POST"
 
 	c := &http.Client{}
@@ -41,7 +41,7 @@ func TestUserRegister(t *testing.T) {
 
 // 测试用户登录接口
 func TestUserLogin(t *testing.T) {
-	url := serverAddr + "/douyin/user/login?username=hwx&password=hwx271828."
+	url := serverAddr + "/douyin/user/login?username=test1&password=123456abc."
 	method := "POST"
 
 	c := &http.Client{}
@@ -71,7 +71,7 @@ func TestUserLogin(t *testing.T) {
 // 测试用户信息接口
 func TestUserInfo(t *testing.T) {
 	token := userToken
-	url := serverAddr + "/douyin/user?user_id=0&token=" + token
+	url := serverAddr + "/douyin/user?user_id=1023&token=" + token
 	method := "GET"
 
 	c := &http.Client{}

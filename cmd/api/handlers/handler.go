@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"context"
+	"douyin/cmd/api/auth"
 	"douyin/cmd/api/rpc"
 	"douyin/kitex_gen/comment"
 	"douyin/kitex_gen/favorite"
@@ -52,11 +53,16 @@ func RegisterHandler(ctx context.Context, c *app.RequestContext) {
 		return
 	}
 	// 使用注册rpc
-	resp, _ := rpc.UserRegister(context.Background(), &user.UserRegisterRequest{
+	resp, err := rpc.UserRegister(context.Background(), &user.UserRegisterRequest{
 		Username: registerVar.UserName,
 		Password: registerVar.PassWord,
 	})
-	SendRegisterResponse(c, *resp)
+
+	if err != nil {
+		SendRegisterResponse(c, *resp)
+		return
+	}
+	auth.MW.LoginHandler(ctx, c)
 }
 
 func RelationActionHandler(ctx context.Context, c *app.RequestContext) {

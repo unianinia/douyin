@@ -2,7 +2,6 @@ package auth
 
 import (
 	"context"
-	"douyin/cmd/api/handlers"
 	"douyin/cmd/api/rpc"
 	"douyin/kitex_gen/user"
 	"douyin/pkg/constants"
@@ -51,17 +50,15 @@ func Init() {
 			})
 		},
 		Authenticator: func(ctx context.Context, c *app.RequestContext) (interface{}, error) {
-			var loginVar handlers.UserParam
+			username := c.Query("username")
+			password := c.Query("password")
 
-			loginVar.UserName = c.Query("username")
-			loginVar.PassWord = c.Query("password")
-
-			if len(loginVar.UserName) == 0 || len(loginVar.PassWord) == 0 {
+			if len(username) == 0 || len(password) == 0 {
 				return "", jwt.ErrMissingLoginValues
 			}
 
 			return rpc.UserLogin(context.Background(),
-				&user.UserLoginRequest{Username: loginVar.UserName, Password: loginVar.PassWord})
+				&user.UserLoginRequest{Username: username, Password: password})
 		},
 		IdentityKey: constants.IdentityKey,
 

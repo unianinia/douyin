@@ -47,8 +47,8 @@ func TestCommentList(t *testing.T) {
 	InitRPC()
 
 	resp, err := CommentList(context.Background(), &comment.CommentListRequest{
-		UserId:  1001,
-		VideoId: 1000,
+		UserId:  1021,
+		VideoId: 1023,
 	})
 	if err != nil {
 		t.Errorf(err.Error())

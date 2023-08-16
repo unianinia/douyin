@@ -36,7 +36,7 @@ func TestCommentAction(t *testing.T) {
 }
 
 func TestCommentList(t *testing.T) {
-	url := serverAddr + "/douyin/comment/list/?token=" + userToken + "&video_id=1000"
+	url := serverAddr + "/douyin/comment/list/?token=" + userToken + "&video_id=1023"
 	method := "GET"
 
 	client := &http.Client{}
