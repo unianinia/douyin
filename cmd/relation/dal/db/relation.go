@@ -97,7 +97,8 @@ func CheckRelationFollowExist(ctx context.Context, currentUserId, userId int64) 
 		return rdFollows.ExistFollow(ctx, userId, currentUserId), nil
 	}
 
-	err := dbConn.WithContext(ctx).Where("user_id = ? AND follower_id = ?", userId, currentUserId).Find(&r).Error
+	err := dbConn.WithContext(ctx).Where("user_id = ? AND follower_id = ?",
+		userId, currentUserId).Find(&r).Error
 	if err != nil {
 		return false, err
 	}

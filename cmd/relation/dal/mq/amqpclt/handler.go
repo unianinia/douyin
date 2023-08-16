@@ -16,11 +16,11 @@ func (a *Actor) RelationActionAdd(ctx context.Context, relations <-chan amqp.Del
 	for d := range relations {
 		// 取出用户ID
 		params := strings.Split(string(d.Body), "&")
-		userId, err := strconv.Atoi(params[0])
+		followerId, err := strconv.Atoi(params[0])
 		if err != nil {
 			klog.Errorf("transform error：(%v)", err)
 		}
-		followerId, err := strconv.Atoi(params[1])
+		userId, err := strconv.Atoi(params[1])
 		if err != nil {
 			klog.Errorf("transform error：(%v)", err)
 		}

@@ -11,8 +11,8 @@ func TestRelationAction(t *testing.T) {
 	InitRPC()
 
 	resp, err := RelationAction(context.Background(), &relation.RelationActionRequest{
-		CurrentUserId: 1010,
-		ToUserId:      1011,
+		CurrentUserId: 1023,
+		ToUserId:      1020,
 		ActionType:    1,
 	})
 
