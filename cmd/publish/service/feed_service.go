@@ -77,6 +77,11 @@ func (s *FeedService) FeedAction(req *publish.FeedActionRequest) ([]*common.Vide
 				errChan <- e
 				return
 			}
+			commentCount, e := rpc.CommentCount(s.ctx, dbVideo.ID)
+			if e != nil {
+				errChan <- e
+				return
+			}
 			videoChan <- common.Video{
 				Id:            dbVideo.ID,
 				Author:        resp.User,
@@ -85,6 +90,7 @@ func (s *FeedService) FeedAction(req *publish.FeedActionRequest) ([]*common.Vide
 				FavoriteCount: favoritedCount,
 				IsFavorite:    isFavorite,
 				Title:         dbVideo.Title,
+				CommentCount:  commentCount,
 			}
 		}(*v)
 	}

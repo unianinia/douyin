@@ -20,7 +20,7 @@ func NewMessageListService(ctx context.Context) *MessageListService {
 
 func (s *MessageListService) MessageList(req *message.MessageListRequest) ([]*message.Message, error) {
 	messages := make([]*message.Message, 0)
-	fromUserId := req.PreMsgTime
+	fromUserId := req.UserId
 	toUserId := req.ToUserId
 	preMsgTime := req.PreMsgTime
 

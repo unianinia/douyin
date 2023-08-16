@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"testing"
+	"time"
 )
 
 func TestAddNewMessage(t *testing.T) {
@@ -23,9 +24,20 @@ func TestAddNewMessage(t *testing.T) {
 
 func TestGetLatestMessageByIdPair(t *testing.T) {
 	Init()
-	msg, err := GetLatestMessageByIdPair(1002, 1003)
+	msg, err := GetLatestMessageByIdPair(1010, 1011)
 	if err != nil {
 		return
 	}
 	fmt.Printf("%v\n", *msg)
+}
+
+func TestGetMessageListByIdPair(t *testing.T) {
+	Init()
+	msgs, err := GetMessageListByIdPair(1010, 1011, time.Now())
+	if err != nil {
+		return
+	}
+	for _, msg := range msgs {
+		fmt.Printf("%v\n", msg)
+	}
 }

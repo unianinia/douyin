@@ -71,11 +71,13 @@ func CommentList(ctx context.Context, req *comment.CommentListRequest) (*comment
 	return resp, nil
 }
 
-func CommentCount(ctx context.Context, req *comment.CommentCountRequest) (int64, error) {
+func CommentCount(ctx context.Context, videoId int64) (int64, error) {
 	if commentClient == nil {
 		return 0, errno.ServiceErr
 	}
-	resp, err := commentClient.CommentCount(ctx, req)
+	resp, err := commentClient.CommentCount(ctx, &comment.CommentCountRequest{
+		VideoId: videoId,
+	})
 	if err != nil {
 		return 0, err
 	}

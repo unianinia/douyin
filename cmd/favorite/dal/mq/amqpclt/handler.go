@@ -14,7 +14,6 @@ import (
 // FavoriteActionAdd 添加用户点赞记录
 func (a *Actor) FavoriteActionAdd(ctx context.Context, favorites <-chan amqp.Delivery) {
 	for d := range favorites {
-		// 取出用户ID
 		params := strings.Split(string(d.Body), "&")
 		userId, err := strconv.Atoi(params[0])
 		if err != nil {
@@ -30,9 +29,9 @@ func (a *Actor) FavoriteActionAdd(ctx context.Context, favorites <-chan amqp.Del
 
 		if action == "1" {
 			if exist, _ := db.CheckFavoriteExist(ctx, int64(userId), int64(videoId)); exist {
-				return
+				klog.Errorf("favorite exist")
 			}
-			if _, err = db.AddNewFavorite(context.Background(), &db.Favorites{
+			if _, err = db.AddNewFavorite(ctx, &db.Favorites{
 				UserId:  int64(userId),
 				VideoId: int64(videoId),
 			}); err != nil {
@@ -40,9 +39,9 @@ func (a *Actor) FavoriteActionAdd(ctx context.Context, favorites <-chan amqp.Del
 			}
 		} else {
 			if exist, _ := db.CheckFavoriteExist(ctx, int64(userId), int64(videoId)); !exist {
-				return
+				klog.Errorf("favorite no exist")
 			}
-			if _, err = db.DeleteFavorite(context.Background(), &db.Favorites{
+			if _, err = db.DeleteFavorite(ctx, &db.Favorites{
 				UserId:  int64(userId),
 				VideoId: int64(videoId),
 			}); err != nil {

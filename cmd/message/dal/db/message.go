@@ -39,6 +39,17 @@ func GetMessageListByIdPair(userId1, userId2 int64, preMsgTime time.Time) ([]Mes
 	return messages, nil
 }
 
+// GetAllMessageListByIdPair 获取所有消息
+func GetAllMessageListByIdPair(userId1, userId2 int64) ([]Message, error) {
+	var messages []Message
+	err := dbConn.Where("to_user_id = ? AND from_user_id = ?",
+		userId2, userId1).Find(&messages).Error
+	if err != nil {
+		return nil, err
+	}
+	return messages, nil
+}
+
 // GetLatestMessageByIdPair 查询user1和user2的最新消息
 func GetLatestMessageByIdPair(userId1, userId2 int64) (*Message, error) {
 	var message Message

@@ -8,7 +8,7 @@ import (
 )
 
 func TestMessageAction(t *testing.T) {
-	url := serverAddr + "/douyin/message/action?token=" + userToken + "&to_user_id=1001&action_type=1&content=Nice"
+	url := serverAddr + "/douyin/message/action?token=" + userToken + "&to_user_id=1011&action_type=1&content=Nice"
 	method := "POST"
 
 	client := &http.Client{}
@@ -36,8 +36,7 @@ func TestMessageAction(t *testing.T) {
 }
 
 func TestMessageList(t *testing.T) {
-
-	url := serverAddr + "/douyin/message/chat/?token=" + userToken + "&to_user_id=1001"
+	url := serverAddr + "/douyin/message/chat/?token=" + userToken + "&to_user_id=1011"
 	method := "GET"
 
 	client := &http.Client{}

@@ -16,6 +16,7 @@ import (
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/hertz-contrib/jwt"
 	"strconv"
+	"time"
 )
 
 // RegisterHandler 用户注册
@@ -304,8 +305,9 @@ func MessageListHandler(ctx context.Context, c *app.RequestContext) {
 	MessageListVar.ToUserId = int64(id)
 
 	resp, err := rpc.MessageList(ctx, &message.MessageListRequest{
-		UserId:   MessageListVar.UserId,
-		ToUserId: MessageListVar.ToUserId,
+		UserId:     MessageListVar.UserId,
+		ToUserId:   MessageListVar.ToUserId,
+		PreMsgTime: time.Now().UnixNano() / int64(time.Millisecond),
 	})
 	SendMessageListResponse(c, message.MessageListResponse{
 		StatusCode:  resp.StatusCode,

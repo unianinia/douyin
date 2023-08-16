@@ -59,9 +59,7 @@ func TestCommentList(t *testing.T) {
 func TestCommentCount(t *testing.T) {
 	InitRPC()
 
-	count, err := CommentCount(context.Background(), &comment.CommentCountRequest{
-		VideoId: 1000,
-	})
+	count, err := CommentCount(context.Background(), 1018)
 	if err != nil {
 		t.Errorf(err.Error())
 	}

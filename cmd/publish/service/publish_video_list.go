@@ -4,7 +4,6 @@ import (
 	"context"
 	"douyin/cmd/api/rpc"
 	"douyin/cmd/publish/dal/db"
-	"douyin/kitex_gen/comment"
 	"douyin/kitex_gen/common"
 	"douyin/kitex_gen/publish"
 	"douyin/kitex_gen/user"
@@ -50,9 +49,7 @@ func (s *PublishVideoListService) PublishVideoList(req *publish.PublishVideoList
 		wg.Add(1)
 		go func(video *db.Video) {
 			defer wg.Done()
-			count, e := rpc.CommentCount(s.ctx, &comment.CommentCountRequest{
-				VideoId: video.ID,
-			})
+			count, e := rpc.CommentCount(s.ctx, video.ID)
 			if e != nil {
 				errChan <- e
 				return

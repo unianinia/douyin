@@ -115,7 +115,6 @@ func GetUserFavoriteCountById(ctx context.Context, userId int64) (int64, error) 
 	if rdFavorite.CheckFavorite(ctx, userId) {
 		return rdFavorite.CountFavorite(ctx, userId)
 	}
-
 	videos, err := getUserFavoriteIdList(userId)
 	if err != nil {
 		return 0, err

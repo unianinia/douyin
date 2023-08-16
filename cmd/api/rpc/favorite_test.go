@@ -39,7 +39,7 @@ func TestFavoriteCount(t *testing.T) {
 func TestFavoriteExist(t *testing.T) {
 	InitRPC()
 
-	exist, err := FavoriteExist(context.Background(), 1001, 1000)
+	exist, err := FavoriteExist(context.Background(), 1010, 1018)
 	if err != nil {
 		t.Errorf(err.Error())
 		return

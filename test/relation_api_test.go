@@ -8,7 +8,7 @@ import (
 )
 
 func TestRelationAction(t *testing.T) {
-	url := serverAddr + "/douyin/relation/action?token=" + userToken + "&to_user_id=1002&action_type=1"
+	url := serverAddr + "/douyin/relation/action?token=" + userToken + "&to_user_id=1011&action_type=1"
 	method := "POST"
 
 	client := &http.Client{}

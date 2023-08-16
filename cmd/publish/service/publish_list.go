@@ -58,22 +58,27 @@ func (s *PublishListService) PublishList(req *publish.PublishListRequest) ([]*co
 	for _, v := range dbVideos {
 		wg.Add(1)
 		go func(dbVideo db.Video) {
+			defer wg.Done()
 			favoritedCount, isFavorite, e := rpc.FavoriteCountOfVideo(s.ctx, req.UserId, dbVideo.ID)
 			if e != nil {
 				errChan <- e
-			} else {
-				videoChan <- common.Video{
-					Id:            dbVideo.ID,
-					Author:        resp.User,
-					PlayUrl:       dbVideo.PlayURL,
-					CoverUrl:      dbVideo.CoverURL,
-					FavoriteCount: favoritedCount,
-					IsFavorite:    isFavorite,
-					Title:         dbVideo.Title,
-				}
+				return
 			}
-
-			wg.Done()
+			commentCount, e := rpc.CommentCount(s.ctx, dbVideo.ID)
+			if e != nil {
+				errChan <- e
+				return
+			}
+			videoChan <- common.Video{
+				Id:            dbVideo.ID,
+				Author:        resp.User,
+				PlayUrl:       dbVideo.PlayURL,
+				CoverUrl:      dbVideo.CoverURL,
+				FavoriteCount: favoritedCount,
+				IsFavorite:    isFavorite,
+				Title:         dbVideo.Title,
+				CommentCount:  commentCount,
+			}
 		}(*v)
 	}
 

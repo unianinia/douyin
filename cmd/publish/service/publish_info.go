@@ -7,6 +7,7 @@ import (
 	"douyin/kitex_gen/common"
 	"douyin/kitex_gen/publish"
 	"douyin/kitex_gen/user"
+	"sync"
 )
 
 type PublishInfoService struct {
@@ -32,15 +33,40 @@ func (s *PublishInfoService) PublishInfo(req *publish.PublishInfoRequest) (*comm
 	video.PlayUrl = v.PlayURL
 	video.CoverUrl = v.CoverURL
 
-	resp, err := rpc.UserInfo(s.ctx, &user.UserInfoRequest{
-		CurrentUserId: req.CurrentUserId,
-		UserId:        v.AuthorID,
-	})
-	if err != nil {
-		return &video, err
-	}
+	errChan := make(chan error, 2)
 
-	video.Author = resp.User
+	var wg sync.WaitGroup
+	wg.Add(2)
+
+	go func() {
+		defer wg.Done()
+		count, e := rpc.CommentCount(s.ctx, video.Id)
+		if e != nil {
+			errChan <- e
+		} else {
+			video.CommentCount = count
+		}
+	}()
+
+	go func() {
+		defer wg.Done()
+		info, e := rpc.UserInfo(s.ctx, &user.UserInfoRequest{
+			CurrentUserId: req.CurrentUserId,
+			UserId:        v.AuthorID,
+		})
+		if e != nil {
+			errChan <- e
+		} else {
+			video.Author = info.User
+		}
+	}()
+
+	wg.Wait()
+	select {
+	case <-errChan:
+		return &video, err
+	default:
+	}
 
 	return &video, err
 }
