@@ -8,9 +8,9 @@ A minimalist tiktok, using a distributed microservice architecture based on **Ki
 
 - Middleware、Rate Limiting、Request Retry、Timeout Control、Connection Multiplexing
 - Message Queue
-  - use **RabbitMQ** for asynchronous communication and module decoupling.
+  - use **RabbitMQ** for asynchronous communication and module decoupling
 - Memory Cache
-  - use **Redis** to cache hot data.
+  - use **Redis** to cache hot data
 
 - Tracing
   - use **jaeger** to tracing
