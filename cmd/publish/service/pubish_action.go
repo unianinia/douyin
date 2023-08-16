@@ -33,19 +33,26 @@ func (s *PublishActionService) PublishAction(req *publish.PublishActionRequest) 
 	video.Title = req.Title
 	video.PublishTime = time.Now()
 	f.VideoName = fmt.Sprintf("%d_%d.mp4", req.UserId, video.PublishTime.Unix())
-	f.VideoData = req.Data
-
-	f.ImageData, err = ffmpeg.GetSnapShot(req.Data)
-	if err != nil {
-		return false, err
-	}
 	f.ImageName = strings.Replace(f.VideoName, "mp4", "jpg", 1)
 
-	oss.UploadFile(f)
 	iu, err := minio.GetObjectURL(s.ctx, constants.MinioImageBucketName, f.ImageName)
 	vu, err := minio.GetObjectURL(s.ctx, constants.MinioVideoBucketName, f.VideoName)
 	video.CoverURL = iu.String()
 	video.PlayURL = vu.String()
+
+	f.VideoData = req.Data
+	_, err = oss.UploadVideo(f.VideoData, f.VideoName)
+	if err != nil {
+		return false, err
+	}
+	f.ImageData, err = ffmpeg.GetSnapShotByURL(video.PlayURL)
+	if err != nil {
+		return false, err
+	}
+	_, err = oss.UploadImage(f.ImageData, f.ImageName)
+	if err != nil {
+		return false, err
+	}
 
 	_, err = db.CreateVideo(&video)
 

@@ -93,3 +93,15 @@ func TestCheckFavoriteExist(t *testing.T) {
 	}
 	fmt.Println(ok)
 }
+
+func TestGetTotalFavoritedbCountByAuthorID(t *testing.T) {
+	Init()
+	cache.Init()
+
+	count, err := GetTotalFavoritedbCountByAuthorID(context.Background(), 1010)
+	if err != nil {
+		t.Errorf(err.Error())
+		return
+	}
+	println(count)
+}

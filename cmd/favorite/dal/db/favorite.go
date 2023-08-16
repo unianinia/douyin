@@ -82,7 +82,8 @@ func GetTotalFavoritedbCountByAuthorID(ctx context.Context, authorId int64) (int
 	var sum int64
 	err := dbConn.WithContext(ctx).Table(constants.FavoriteTableName).
 		Joins("JOIN videos ON favorites.video_id = videos.id").
-		Where("videos.author_id = ?", authorId).Count(&sum).Error
+		Where("videos.author_id = ?", authorId).
+		Not("deleted_at IS NOT NULL").Count(&sum).Error
 	if err != nil {
 		return 0, err
 	}

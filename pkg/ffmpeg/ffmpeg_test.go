@@ -22,3 +22,6 @@ func TestGetSnapShot(t *testing.T) {
 		return
 	}
 }
+
+func TestGetSnapShotByURL(t *testing.T) {
+}
