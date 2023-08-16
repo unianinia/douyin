@@ -69,7 +69,7 @@ func TestUserFavoriteIdList(t *testing.T) {
 	Init()
 	cache.Init()
 
-	videos, err := getUserFavoriteIdList(1001)
+	videos, err := getUserFavoriteIdList(1010)
 	if err != nil {
 		t.Errorf(err.Error())
 		return

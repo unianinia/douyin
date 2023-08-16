@@ -23,7 +23,8 @@ func GetSnapShot(video []byte) ([]byte, error) {
 	inputBuffer := bytes.NewBuffer(video)
 	outputBuffer := bytes.NewBuffer(nil)
 
-	cmd := exec.Command("ffmpeg", "-i", "pipe:0", "-vf", `select=gte(n\,0)`, "-vframes", "1", "-f", "image2", "pipe:1")
+	cmd := exec.Command("ffmpeg", "-i", "pipe:0", "-vf", `select=gte(n\,0)`,
+		"-vframes", "1", "-f", "image2", "pipe:1")
 	cmd.Stdin, cmd.Stdout = inputBuffer, outputBuffer
 
 	err := cmd.Run()

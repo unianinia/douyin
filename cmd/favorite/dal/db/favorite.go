@@ -42,7 +42,8 @@ func AddNewFavorite(ctx context.Context, favorite *Favorites) (bool, error) {
 
 // DeleteFavorite 删除点赞
 func DeleteFavorite(ctx context.Context, favorite *Favorites) (bool, error) {
-	err := dbConn.WithContext(ctx).Where("video_id = ? AND user_id = ?", favorite.VideoId, favorite.UserId).Delete(favorite).Error
+	err := dbConn.WithContext(ctx).Where("video_id = ? AND user_id = ?",
+		favorite.VideoId, favorite.UserId).Delete(favorite).Error
 	if err != nil {
 		return false, err
 	}

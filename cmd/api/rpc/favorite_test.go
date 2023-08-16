@@ -50,7 +50,7 @@ func TestFavoriteExist(t *testing.T) {
 func TestFavoriteCountOfVideo(t *testing.T) {
 	InitRPC()
 
-	count, exist, err := FavoriteCountOfVideo(context.Background(), 1001, 1003)
+	count, exist, err := FavoriteCountOfVideo(context.Background(), 1010, 1018)
 	if err != nil {
 		t.Errorf(err.Error())
 	}
@@ -61,8 +61,8 @@ func TestFavoriteList(t *testing.T) {
 	InitRPC()
 
 	resp, err := FavoriteList(context.Background(), &favorite.FavoriteListRequest{
-		UserId:   1001,
-		ToUserId: 1001,
+		UserId:   1010,
+		ToUserId: 1010,
 	})
 	if err != nil {
 		t.Errorf(err.Error())

@@ -31,11 +31,10 @@ func (s *UserInfoService) UserInfo(req *user.UserInfoRequest) (*common.User, err
 	userInfo.BackgroundImage = &u.BackgroundImage
 	userInfo.Signature = &u.Signature
 
-	errChan := make(chan error, 5)
-	defer close(errChan)
+	errChan := make(chan error, 4)
 
 	var wg sync.WaitGroup
-	wg.Add(5)
+	wg.Add(4)
 
 	go func() {
 		defer wg.Done()
@@ -74,17 +73,6 @@ func (s *UserInfoService) UserInfo(req *user.UserInfoRequest) (*common.User, err
 
 	go func() {
 		defer wg.Done()
-		favoriteCount, favoritedCount, e := rpc.FavoriteCount(s.ctx, req.UserId)
-		if e != nil {
-			errChan <- e
-		} else {
-			userInfo.FavoriteCount = &favoriteCount
-			userInfo.TotalFavorited = &favoritedCount
-		}
-	}()
-
-	go func() {
-		defer wg.Done()
 		followCount, followerCount, e := rpc.RelationCount(s.ctx, req.UserId)
 		if e != nil {
 			errChan <- e
@@ -96,8 +84,8 @@ func (s *UserInfoService) UserInfo(req *user.UserInfoRequest) (*common.User, err
 
 	wg.Wait()
 	select {
-	case result := <-errChan:
-		return userInfo, result
+	case err = <-errChan:
+		return userInfo, err
 	default:
 	}
 	return userInfo, nil

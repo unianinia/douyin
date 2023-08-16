@@ -36,7 +36,7 @@ func TestFavoriteAction(t *testing.T) {
 }
 
 func TestFavoriteList(t *testing.T) {
-	url := serverAddr + "/douyin/favorite/list/?user_id=1001&token=" + userToken
+	url := serverAddr + "/douyin/favorite/list/?user_id=1010&token=" + userToken
 	method := "GET"
 
 	client := &http.Client{}

@@ -28,8 +28,9 @@ func (s *PublishVideoListService) PublishVideoList(req *publish.PublishVideoList
 		return videos, err
 	}
 
-	videoChan := make(chan common.Video, len(dbVideos))
-	errChan := make(chan error, len(dbVideos))
+	num := len(dbVideos)
+	videoChan := make(chan common.Video, num)
+	errChan := make(chan error, num)
 	doneChan := make(chan struct{})
 
 	var wg sync.WaitGroup

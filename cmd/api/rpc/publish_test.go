@@ -51,8 +51,8 @@ func TestPublishList(t *testing.T) {
 	InitRPC()
 
 	resp, err := PublishList(context.Background(), &publish.PublishListRequest{
-		CurrentUserId: 1002,
-		UserId:        1001,
+		CurrentUserId: 1010,
+		UserId:        1010,
 	})
 	if err != nil {
 		t.Errorf(err.Error())
@@ -75,7 +75,7 @@ func TestPublishInfo(t *testing.T) {
 func TestPublishVideoList(t *testing.T) {
 	InitRPC()
 
-	videos, err := PublishVideoList(context.Background(), []int64{1000, 1001})
+	videos, err := PublishVideoList(context.Background(), []int64{1018, 1018})
 
 	if err != nil {
 		t.Errorf(err.Error())

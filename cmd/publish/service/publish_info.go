@@ -33,10 +33,10 @@ func (s *PublishInfoService) PublishInfo(req *publish.PublishInfoRequest) (*comm
 	video.PlayUrl = v.PlayURL
 	video.CoverUrl = v.CoverURL
 
-	errChan := make(chan error, 2)
+	errChan := make(chan error, 3)
 
 	var wg sync.WaitGroup
-	wg.Add(2)
+	wg.Add(3)
 
 	go func() {
 		defer wg.Done()
@@ -61,12 +61,23 @@ func (s *PublishInfoService) PublishInfo(req *publish.PublishInfoRequest) (*comm
 		}
 	}()
 
+	go func() {
+		defer wg.Done()
+		favoriteCount, isFavorite, e := rpc.FavoriteCountOfVideo(s.ctx, req.CurrentUserId, req.VideoId)
+		if e != nil {
+			errChan <- e
+		} else {
+			video.FavoriteCount = favoriteCount
+			video.IsFavorite = isFavorite
+		}
+	}()
+
 	wg.Wait()
 	select {
-	case <-errChan:
+	case err = <-errChan:
 		return &video, err
 	default:
 	}
 
-	return &video, err
+	return &video, nil
 }

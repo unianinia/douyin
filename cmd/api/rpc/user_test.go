@@ -24,8 +24,8 @@ func TestUserInfo(t *testing.T) {
 	InitRPC()
 
 	info, err := UserInfo(context.Background(), &user.UserInfoRequest{
-		CurrentUserId: 1001,
-		UserId:        1002,
+		CurrentUserId: 1010,
+		UserId:        1010,
 	})
 	if err != nil {
 		t.Errorf(err.Error())
@@ -33,4 +33,15 @@ func TestUserInfo(t *testing.T) {
 	}
 
 	fmt.Printf("%#v\n", *info)
+}
+
+func TestUserExist(t *testing.T) {
+	InitRPC()
+
+	exist, err := UserExist(context.Background(), 1010)
+	if err != nil {
+		t.Errorf(err.Error())
+		return
+	}
+	println(exist)
 }

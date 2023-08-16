@@ -101,5 +101,9 @@ func FavoriteList(ctx context.Context, req *favorite.FavoriteListRequest) (*favo
 	if favoriteClient == nil {
 		return &favorite.FavoriteListResponse{}, nil
 	}
-	return favoriteClient.FavoriteList(ctx, req)
+	resp, err := favoriteClient.FavoriteList(ctx, req)
+	if err != nil {
+		return &favorite.FavoriteListResponse{}, err
+	}
+	return resp, nil
 }
