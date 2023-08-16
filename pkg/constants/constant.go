@@ -27,7 +27,7 @@ const (
 	CommentTableName  = "comments"
 
 	MinioVideoBucketName = "videos"
-	MinioImageBucketName = "images"
+	MinioImageBucketName = "image"
 )
 
 const (
