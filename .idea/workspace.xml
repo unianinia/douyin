@@ -5,43 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="041b767b-afc6-4c5e-9562-2c7e02c97c59" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/rpc/favorite.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/rpc/favorite.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/rpc/favorite_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/rpc/favorite_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/rpc/publish_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/rpc/publish_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/rpc/relation_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/rpc/relation_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/rpc/user_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/rpc/user_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/favorite/dal/db/favorite.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/favorite/dal/db/favorite.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/favorite/dal/db/favorite_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/favorite/dal/db/favorite_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/favorite/service/favorite_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/favorite/service/favorite_list.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/publish/service/publish_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/publish/service/publish_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/publish/service/publish_video_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/publish/service/publish_video_list.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/user/service/user_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/user/service/user_info.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/.bloomcycle.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/.bloomcycle.bin/xl.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/.usage-cache.bin/xl.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/.usage.json/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/.usage.json/xl.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/images/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/images/.usage-cache.bin/xl.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/videos/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/buckets/videos/.usage-cache.bin/xl.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/config/iam/sts/2JVR8X2934FE0ZMZC1RV/identity.json/xl.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/minio/.minio.sys/tmp/c1adeb4d-33ce-46f6-8e29-2675107d87f2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/DECISION_TAB.LOG" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/DECISION_TAB.LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/LATEST.LOG" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/LATEST.LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/coordination/rabbit@f32ddcf26684/00000001.wal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/quorum/rabbit@f32ddcf26684/00000001.wal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_durable_exchange.DCD" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_durable_exchange.DCD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_durable_exchange.DCL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_runtime_parameters.DCD" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_runtime_parameters.DCD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_runtime_parameters.DCL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_serial" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_serial" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_user.DCD" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_user.DCD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_user.DCL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_user_permission.DCD" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_user_permission.DCD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_user_permission.DCL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_vhost.DCD" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_vhost.DCD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/rabbitmq/lib/mnesia/rabbit@f32ddcf26684/rabbit_vhost.DCL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/redis/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/redis/dump.rdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/ffmpeg/ffmpeg.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/ffmpeg/ffmpeg.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/favorite_api_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/favorite_api_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,23 +85,14 @@
       <recent name="$PROJECT_DIR$/cmd/favorite" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestPublishInfo in douyin/cmd/api/rpc">
-    <configuration name="go build douyin/cmd/message" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestFavoriteList in douyin/cmd/api/rpc">
+    <configuration name="go build douyin/cmd/favorite" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="douyin" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="douyin/cmd/message" />
+      <package value="douyin/cmd/favorite" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/cmd/message/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build douyin/cmd/publish" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="douyin" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="douyin/cmd/publish" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/cmd/publish/main.go" />
+      <filePath value="$PROJECT_DIR$/cmd/favorite/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build douyin/cmd/relation" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -150,6 +111,18 @@
       <package value="douyin/cmd/user" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/cmd/user/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestFavoriteList in douyin/cmd/api/rpc" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="douyin" />
+      <working_directory value="$PROJECT_DIR$/cmd/api/rpc" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="douyin/cmd/api/rpc" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestFavoriteList\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestPublishInfo in douyin/cmd/api/rpc" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -172,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestFavoriteList in douyin/cmd/api/rpc" />
+        <item itemvalue="Go Build.go build douyin/cmd/favorite" />
         <item itemvalue="Go Test.TestPublishInfo in douyin/cmd/api/rpc" />
         <item itemvalue="Go Build.go build douyin/cmd/user" />
         <item itemvalue="Go Build.go build douyin/cmd/relation" />
-        <item itemvalue="Go Build.go build douyin/cmd/publish" />
-        <item itemvalue="Go Build.go build douyin/cmd/message" />
       </list>
     </recent_temporary>
   </component>
