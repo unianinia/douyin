@@ -34,13 +34,13 @@ simple douyin
 
 ## Quick Start
 
-### 1.Setup Basic Dependence
+### 1. Setup Basic Dependence
 
 ```shell
 docker-compose up
 ```
 
-### 2.Run User RPC Server
+### 2. Run User RPC Server
 
 ```shell
 cd cmd/user
@@ -48,7 +48,7 @@ sh build.sh
 sh output/bootstrap.sh
 ```
 
-### 3.Run Publish RPC Server
+### 3. Run Publish RPC Server
 
 ```shell
 cd cmd/publish
@@ -56,7 +56,7 @@ sh build.sh
 sh output/bootstrap.sh
 ```
 
-### 4.Run Comment RPC Server
+### 4. Run Comment RPC Server
 
 ```shell
 cd cmd/comment
@@ -64,7 +64,7 @@ sh build.sh
 sh output/bootstrap.sh
 ```
 
-### 5.Run Favorite RPC Server
+### 5. Run Favorite RPC Server
 
 ```shell
 cd cmd/favorite
@@ -72,7 +72,7 @@ sh build.sh
 sh output/bootstrap.sh
 ```
 
-### 6.Run Message RPC Server
+### 6. Run Message RPC Server
 
 ```shell
 cd cmd/message
@@ -80,7 +80,7 @@ sh build.sh
 sh output/bootstrap.sh
 ```
 
-### 7.Run Relation RPC Server
+### 7. Run Relation RPC Server
 
 ```shell
 cd cmd/relation
@@ -88,7 +88,7 @@ sh build.sh
 sh output/bootstrap.sh
 ```
 
-### 8.Run API Server
+### 8. Run API Server
 
 ```shell
 cd cmd/api
@@ -96,6 +96,6 @@ chmod +x run.sh
 ./run.sh
 ```
 
-### 9.Jaeger
+### 9. Jaeger
 
 visit `http://127.0.0.1:16686/` on browser.
