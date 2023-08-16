@@ -2,7 +2,7 @@
 
 ## Introduction
 
-simple douyin
+A minimalist tiktok, using a distributed microservice architecture based on **Kitex** and **Hertz**
 
 ### Use Basic Features
 
