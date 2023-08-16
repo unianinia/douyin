@@ -32,6 +32,21 @@ simple douyin
 | pkg            | data pack                |
 | service        | business logic           |
 
+### code count
+| Language      | files | blank | comment | code  |
+|---------------|-------|-------|---------|-------|
+| Go            | 181   | 7355  | 421     | 53981 |
+| Thrift        | 8     | 79    | 0       | 341   |
+| Bourne Shell  | 12    | 52    | 0       | 198   |
+| XML           | 4     | 0     | 0       | 192   |
+| YAML          | 7     | 7     | 0       | 86    |
+| Markdown      | 1     | 26    | 0       | 75    |
+| make          | 2     | 5     | 1       | 10    |
+| JSON          | 1     | 0     | 0       | 1     |
+| Text          | 1     | 0     | 0       | 1     |
+|---------------|-------|-------|---------|-------|
+| SUM:          | 217   | 7524  | 422     | 54885 |
+
 ## Quick Start
 
 ### 1. Setup Basic Dependence
