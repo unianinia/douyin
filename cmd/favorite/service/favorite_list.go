@@ -29,58 +29,7 @@ func (s *FavoriteListService) FavoriteList(req *favorite.FavoriteListRequest) ([
 		return videos, errno.UserIsNotExistErr
 	}
 
-	//videoIds, err := db.GetUserFavoriteIdList(s.ctx, req.ToUserId)
-	//if err != nil {
-	//	return videos, err
-	//}
-	//
-	//for _, id := range videoIds {
-	//	video, err := rpc.PublishInfo(s.ctx, id)
-	//	if err != nil {
-	//		return videos, err
-	//	}
-	//	videos = append(videos, video)
-	//}
-	//
-	//num := len(videoIds)
-	//videoChan := make(chan common.Video, num)
-	//errChan := make(chan error, num)
-	//doneChan := make(chan struct{})
-	//
-	//var wg sync.WaitGroup
-	//
-	//go func() {
-	//	for {
-	//		select {
-	//		case video := <-videoChan:
-	//			videos = append(videos, &video)
-	//		case <-doneChan:
-	//			return
-	//		}
-	//	}
-	//}()
-	//
-	//for _, id := range videoIds {
-	//	wg.Add(1)
-	//	go func(videoId int64) {
-	//		defer wg.Done()
-	//		video, e := rpc.PublishInfo(s.ctx, videoId)
-	//		if e != nil {
-	//			errChan <- e
-	//		} else {
-	//			videoChan <- *video
-	//		}
-	//	}(id)
-	//}
-	//
-	//wg.Wait()
-	//doneChan <- struct{}{}
-	//
-	//select {
-	//case err = <-errChan:
-	//	return videos, err
-	//default:
-	//}
+	// TODO: 完善该逻辑 存在潜在的线程阻塞稳定
 
 	return videos, nil
 }
