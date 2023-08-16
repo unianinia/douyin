@@ -47,11 +47,11 @@ simple douyin
 |---------------|-------|-------|---------|-------|
 | SUM:          | 217   | 7524  | 422     | 54885 |
 
-###screenshot
+### screenshot
 
-<img src="https://github.com/T4t4KAU/douyin/blob/main/image/image1.png?raw=true" alt="image1.png" style="zoom: 33%;" />
+<img src="https://github.com/T4t4KAU/douyin/blob/main/image/image1.png?raw=true" alt="image1.png" style="zoom: 33%;"/>
 
-<img src="https://github.com/T4t4KAU/douyin/blob/main/image/image2.png?raw=true" alt="image2.png" style="zoom:33%;" />
+<img src="https://github.com/T4t4KAU/douyin/blob/main/image/image2.png?raw=true" alt="image2.png" style="zoom:33%;"/>
 
 ## Quick Start
 
