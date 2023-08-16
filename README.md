@@ -120,5 +120,5 @@ visit `http://127.0.0.1:16686/` on browser.
 <br>
 <img src="https://github.com/T4t4KAU/douyin/blob/main/image/image2.png?raw=true" alt="image2.png" style="width:30%; height:auto;">
 
-##Give a star! ⭐
+## Give a star! ⭐
 If you think this project is interesting, or helpful to you, please give a star!
