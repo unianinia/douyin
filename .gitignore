@@ -1,3 +1,2 @@
-pkg/data
-.idea
-.gitignore
+pkg/data/
+.idea/
