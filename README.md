@@ -59,7 +59,7 @@ docker-compose up
 ```shell
 cd cmd/user
 sh build.sh
-sh output/bootstrap.sh
+go run output/bin
 ```
 
 ### 3. Run Publish RPC Server
@@ -67,7 +67,7 @@ sh output/bootstrap.sh
 ```shell
 cd cmd/publish
 sh build.sh
-sh output/bootstrap.sh
+go run output/bin
 ```
 
 ### 4. Run Comment RPC Server
@@ -75,7 +75,7 @@ sh output/bootstrap.sh
 ```shell
 cd cmd/comment
 sh build.sh
-sh output/bootstrap.sh
+go run output/bin
 ```
 
 ### 5. Run Favorite RPC Server
@@ -83,7 +83,7 @@ sh output/bootstrap.sh
 ```shell
 cd cmd/favorite
 sh build.sh
-sh output/bootstrap.sh
+go run output/bin
 ```
 
 ### 6. Run Message RPC Server
@@ -91,7 +91,7 @@ sh output/bootstrap.sh
 ```shell
 cd cmd/message
 sh build.sh
-sh output/bootstrap.sh
+go run output/bin
 ```
 
 ### 7. Run Relation RPC Server
@@ -99,7 +99,7 @@ sh output/bootstrap.sh
 ```shell
 cd cmd/relation
 sh build.sh
-sh output/bootstrap.sh
+go run output/bin
 ```
 
 ### 8. Run API Server
@@ -107,7 +107,7 @@ sh output/bootstrap.sh
 ```shell
 cd cmd/api
 chmod +x run.sh
-./run.sh
+go run api
 ```
 
 ### 9. Jaeger

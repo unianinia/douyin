@@ -26,8 +26,10 @@ const (
 	FavoriteTableName = "favorites"
 	CommentTableName  = "comments"
 
-	MinioVideoBucketName = "videos"
-	MinioImageBucketName = "image"
+	MinioVideoBucketName      = "videos"
+	MinioImageBucketName      = "images"
+	MinioAvatarBucketName     = "avatars"
+	MinioBackgroundBucketName = "backgrounds"
 )
 
 const (

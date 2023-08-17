@@ -42,7 +42,7 @@ func TestPutToBucketByBuff(t *testing.T) {
 
 func TestGetObjectURL(t *testing.T) {
 	Init()
-	u, err := GetObjectURL(context.Background(), "image", "1000.jpg")
+	u, err := GetObjectURL(context.Background(), "images", "1000.jpg")
 	if err != nil {
 		t.Errorf(err.Error())
 		return

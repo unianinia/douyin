@@ -27,6 +27,8 @@ func Init() {
 	}
 	CreateBucket(ctx, constants.MinioVideoBucketName)
 	CreateBucket(ctx, constants.MinioImageBucketName)
+	CreateBucket(ctx, constants.MinioAvatarBucketName)
+	CreateBucket(ctx, constants.MinioBackgroundBucketName)
 }
 
 // CreateBucket 创建存储桶
