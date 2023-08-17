@@ -36,7 +36,6 @@ func RegisterHandler(ctx context.Context, c *app.RequestContext) {
 		return
 	}
 
-	// SendRegisterResponse(c, *resp)
 	if len(registerVar.UserName) > constants.UserNameMaxLen {
 		err := errno.ErrUserNameOverSize
 		SendRegisterResponse(c, user.UserRegisterResponse{
