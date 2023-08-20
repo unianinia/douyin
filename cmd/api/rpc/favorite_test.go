@@ -61,8 +61,8 @@ func TestFavoriteList(t *testing.T) {
 	InitRPC()
 
 	resp, err := FavoriteList(context.Background(), &favorite.FavoriteListRequest{
-		UserId:   1010,
-		ToUserId: 1010,
+		UserId:   1020,
+		ToUserId: 1020,
 	})
 	if err != nil {
 		t.Errorf(err.Error())

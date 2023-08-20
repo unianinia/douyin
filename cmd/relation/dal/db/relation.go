@@ -222,7 +222,7 @@ func addFollowerRelationToRedis(userId int64, followers []int64) {
 // GetFriendIdList 获取用户好友列表
 func GetFriendIdList(ctx context.Context, userId int64) ([]int64, error) {
 	if !rdFollows.CheckFollow(ctx, userId) {
-		following, err := getFollowerIdList(userId)
+		following, err := getFollowIdList(userId)
 		if err != nil {
 			return *new([]int64), err
 		}

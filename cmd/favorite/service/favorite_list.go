@@ -29,7 +29,5 @@ func (s *FavoriteListService) FavoriteList(req *favorite.FavoriteListRequest) ([
 		return videos, errno.UserIsNotExistErr
 	}
 
-	// TODO: 完善该逻辑 存在潜在的线程阻塞问题
-
 	return videos, nil
 }

@@ -81,8 +81,8 @@ func TestRelationFriendList(t *testing.T) {
 	InitRPC()
 
 	resp, err := RelationFriendList(context.Background(), &relation.RelationFriendListRequest{
-		UserId:        1010,
-		CurrentUserId: 1011,
+		UserId:        1023,
+		CurrentUserId: 1020,
 	})
 	if err != nil {
 		t.Errorf(err.Error())
