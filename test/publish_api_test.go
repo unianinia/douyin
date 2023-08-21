@@ -60,7 +60,7 @@ func TestPublishAction(t *testing.T) {
 }
 
 func TestPublishList(t *testing.T) {
-	url := serverAddr + "/douyin/publish/list/?token=" + userToken + "&user_id=1001"
+	url := serverAddr + "/douyin/publish/list/?token=" + userToken + "&user_id=1020"
 	method := "GET"
 
 	client := &http.Client{}

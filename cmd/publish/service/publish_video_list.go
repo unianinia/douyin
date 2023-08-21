@@ -50,24 +50,32 @@ func (s *PublishVideoListService) PublishVideoList(req *publish.PublishVideoList
 		wg.Add(1)
 		go func(video *db.Video) {
 			defer wg.Done()
-			count, e := rpc.CommentCount(s.ctx, video.ID)
+			commentCount, e := rpc.CommentCount(s.ctx, video.ID)
 			if e != nil {
 				errChan <- e
 				return
 			}
 
 			resp, e := rpc.UserInfo(s.ctx, &user.UserInfoRequest{
-				CurrentUserId: video.AuthorID,
+				CurrentUserId: 0,
 				UserId:        video.AuthorID,
 			})
 
+			favoriteCount, _, err := rpc.FavoriteCountOfVideo(s.ctx, 0, video.ID)
+			if err != nil {
+				errChan <- e
+				return
+			}
+
 			videoChan <- common.Video{
-				Id:           video.ID,
-				PlayUrl:      video.PlayURL,
-				CoverUrl:     video.CoverURL,
-				Title:        video.Title,
-				CommentCount: count,
-				Author:       resp.User,
+				Id:            video.ID,
+				PlayUrl:       video.PlayURL,
+				CoverUrl:      video.CoverURL,
+				Title:         video.Title,
+				CommentCount:  commentCount,
+				FavoriteCount: favoriteCount,
+				IsFavorite:    true,
+				Author:        resp.User,
 			}
 
 		}(v)

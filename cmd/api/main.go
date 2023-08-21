@@ -5,7 +5,6 @@ import (
 	"douyin/cmd/api/auth"
 	"douyin/cmd/api/handlers"
 	"douyin/cmd/api/rpc"
-	"douyin/pkg/constants"
 	"douyin/pkg/errno"
 	tracer "douyin/pkg/trace"
 	"fmt"
@@ -17,13 +16,14 @@ import (
 )
 
 func Init() {
-	tracer.InitJaeger(constants.ApiServiceName)
 	rpc.InitRPC()
 	auth.Init()
+	tracer.Init("api")
 }
 
 func main() {
 	Init()
+
 	r := server.New(
 		server.WithHostPorts("0.0.0.0:8888"),
 		server.WithHandleMethodNotAllowed(true),
@@ -39,6 +39,8 @@ func main() {
 				"status_msg":  fmt.Sprintf("[Recovery] err=%v\nstack=%s", err, stack),
 			})
 		})))
+
+	r.Use()
 
 	// 注册路由
 	router := r.Group("/douyin")
@@ -65,7 +67,6 @@ func main() {
 
 	favoriteRouter := router.Group("/favorite", auth.MW.MiddlewareFunc())
 	favoriteRouter.POST("/action/", handlers.FavoriteActionHandler)
-	favoriteRouter.GET("/list/", handlers.FavoriteListHandler)
 
 	commentRouter := router.Group("/comment", auth.MW.MiddlewareFunc())
 	commentRouter.POST("/action/", handlers.CommentActionHandler)

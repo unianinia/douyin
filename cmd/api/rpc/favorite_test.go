@@ -72,3 +72,19 @@ func TestFavoriteList(t *testing.T) {
 		fmt.Printf("%#v\n", *video)
 	}
 }
+
+func TestFavoriteVideoList(t *testing.T) {
+	InitRPC()
+
+	resp, err := FavoriteVideoList(context.Background(), &favorite.FavoriteVideoListRequest{
+		UserId:   1020,
+		ToUserId: 1020,
+	})
+	if err != nil {
+		t.Errorf(err.Error())
+		return
+	}
+	for _, video := range resp.VideoList {
+		fmt.Printf("%#v\n", *video)
+	}
+}

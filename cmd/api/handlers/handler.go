@@ -350,28 +350,6 @@ func FavoriteActionHandler(ctx context.Context, c *app.RequestContext) {
 	})
 }
 
-func FavoriteListHandler(ctx context.Context, c *app.RequestContext) {
-	var FavoriteListVar FavoriteListParam
-
-	claims := jwt.ExtractClaims(ctx, c)
-	toUserId, err := strconv.Atoi(c.Query("user_id"))
-	if err != nil {
-		SendFavoriteListResponse(c, favorite.FavoriteListResponse{
-			StatusCode: errno.ParamErrCode,
-			StatusMsg:  errno.ParamErrMsg,
-		})
-	}
-
-	FavoriteListVar.CurrentUserId = int64(claims[constants.IdentityKey].(float64))
-	FavoriteListVar.ToUserId = int64(toUserId)
-
-	resp, err := rpc.FavoriteList(ctx, &favorite.FavoriteListRequest{
-		UserId:   FavoriteListVar.CurrentUserId,
-		ToUserId: FavoriteListVar.ToUserId,
-	})
-	SendFavoriteListResponse(c, *resp)
-}
-
 func UserInfoHandler(ctx context.Context, c *app.RequestContext) {
 	var UserInfoVar UserInfoParam
 

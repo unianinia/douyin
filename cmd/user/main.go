@@ -20,7 +20,8 @@ const serviceAddr = "127.0.0.1:9091"
 func main() {
 	dal.Init()
 	rpc.InitRPC()
-	tracer.InitJaeger(serviceAddr)
+	tracerSuit, closer := tracer.Init(constants.UserServiceName)
+	defer closer.Close()
 
 	r, err := etcd.NewEtcdRegistry([]string{
 		constants.EtcdAddress,
@@ -32,7 +33,8 @@ func main() {
 		server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: constants.UserServiceName}), // server name
 		server.WithMiddleware(mw.CommonMiddleware),                                                     // middleware
 		server.WithMiddleware(mw.ServerMiddleware),
-		server.WithServiceAddr(addr),                                       // address
+		server.WithServiceAddr(addr), // address
+		server.WithSuite(tracerSuit),
 		server.WithLimit(&limit.Option{MaxConnections: 1000, MaxQPS: 100}), // limit
 		server.WithRegistry(r),                                             // registry
 	)

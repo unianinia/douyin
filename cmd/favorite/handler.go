@@ -22,19 +22,6 @@ func (s *FavoriteServiceImpl) FavoriteAction(ctx context.Context, req *favorite.
 	return
 }
 
-// FavoriteList implements the FavoriteServiceImpl interface.
-func (s *FavoriteServiceImpl) FavoriteList(ctx context.Context, req *favorite.FavoriteListRequest) (resp *favorite.FavoriteListResponse, err error) {
-	resp = new(favorite.FavoriteListResponse)
-
-	videos, err := service.NewFavoriteListService(ctx).FavoriteList(req)
-	r := pkg.BuildBaseResp(err)
-	resp.StatusCode = r.StatusCode
-	resp.StatusMsg = r.StatusMsg
-	resp.VideoList = videos
-
-	return
-}
-
 // FavoriteCount implements the FavoriteServiceImpl interface.
 func (s *FavoriteServiceImpl) FavoriteCount(ctx context.Context, req *favorite.FavoriteCountRequest) (resp *favorite.FavoriteCountResponse, err error) {
 	resp = new(favorite.FavoriteCountResponse)
@@ -62,6 +49,19 @@ func (s *FavoriteServiceImpl) FavoriteCountOfVideo(ctx context.Context, req *fav
 	count, exist, err := service.NewFavoriteCountOfVideoService(ctx).FavoriteCountOfVideo(req)
 	resp.FavoritedCount = count
 	resp.IsFavorite = exist
+
+	return
+}
+
+// FavoriteVideoList implements the FavoriteServiceImpl interface.
+func (s *FavoriteServiceImpl) FavoriteVideoList(ctx context.Context, req *favorite.FavoriteVideoListRequest) (resp *favorite.FavoriteVideoListResponse, err error) {
+	resp = new(favorite.FavoriteVideoListResponse)
+
+	videos, err := service.NewFavoriteVideoListService(ctx).FavoriteVideoList(req)
+	r := pkg.BuildBaseResp(err)
+	resp.StatusCode = r.StatusCode
+	resp.StatusMsg = r.StatusMsg
+	resp.VideoList = videos
 
 	return
 }

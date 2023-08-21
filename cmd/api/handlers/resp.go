@@ -74,10 +74,6 @@ func SendPublishListResponse(c *app.RequestContext, resp publish.PublishListResp
 	c.JSON(consts.StatusOK, resp)
 }
 
-func SendFavoriteListResponse(c *app.RequestContext, resp favorite.FavoriteListResponse) {
-	c.JSON(consts.StatusOK, resp)
-}
-
 func SendFeedActionResponse(c *app.RequestContext, resp publish.FeedActionResponse) {
 	c.JSON(consts.StatusOK, resp)
 }

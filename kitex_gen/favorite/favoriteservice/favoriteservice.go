@@ -20,10 +20,10 @@ func NewServiceInfo() *kitex.ServiceInfo {
 	handlerType := (*favorite.FavoriteService)(nil)
 	methods := map[string]kitex.MethodInfo{
 		"FavoriteAction":       kitex.NewMethodInfo(favoriteActionHandler, newFavoriteServiceFavoriteActionArgs, newFavoriteServiceFavoriteActionResult, false),
-		"FavoriteList":         kitex.NewMethodInfo(favoriteListHandler, newFavoriteServiceFavoriteListArgs, newFavoriteServiceFavoriteListResult, false),
 		"FavoriteCount":        kitex.NewMethodInfo(favoriteCountHandler, newFavoriteServiceFavoriteCountArgs, newFavoriteServiceFavoriteCountResult, false),
 		"FavoriteExist":        kitex.NewMethodInfo(favoriteExistHandler, newFavoriteServiceFavoriteExistArgs, newFavoriteServiceFavoriteExistResult, false),
 		"FavoriteCountOfVideo": kitex.NewMethodInfo(favoriteCountOfVideoHandler, newFavoriteServiceFavoriteCountOfVideoArgs, newFavoriteServiceFavoriteCountOfVideoResult, false),
+		"FavoriteVideoList":    kitex.NewMethodInfo(favoriteVideoListHandler, newFavoriteServiceFavoriteVideoListArgs, newFavoriteServiceFavoriteVideoListResult, false),
 	}
 	extra := map[string]interface{}{
 		"PackageName": "favorite",
@@ -55,24 +55,6 @@ func newFavoriteServiceFavoriteActionArgs() interface{} {
 
 func newFavoriteServiceFavoriteActionResult() interface{} {
 	return favorite.NewFavoriteServiceFavoriteActionResult()
-}
-
-func favoriteListHandler(ctx context.Context, handler interface{}, arg, result interface{}) error {
-	realArg := arg.(*favorite.FavoriteServiceFavoriteListArgs)
-	realResult := result.(*favorite.FavoriteServiceFavoriteListResult)
-	success, err := handler.(favorite.FavoriteService).FavoriteList(ctx, realArg.Req)
-	if err != nil {
-		return err
-	}
-	realResult.Success = success
-	return nil
-}
-func newFavoriteServiceFavoriteListArgs() interface{} {
-	return favorite.NewFavoriteServiceFavoriteListArgs()
-}
-
-func newFavoriteServiceFavoriteListResult() interface{} {
-	return favorite.NewFavoriteServiceFavoriteListResult()
 }
 
 func favoriteCountHandler(ctx context.Context, handler interface{}, arg, result interface{}) error {
@@ -129,6 +111,24 @@ func newFavoriteServiceFavoriteCountOfVideoResult() interface{} {
 	return favorite.NewFavoriteServiceFavoriteCountOfVideoResult()
 }
 
+func favoriteVideoListHandler(ctx context.Context, handler interface{}, arg, result interface{}) error {
+	realArg := arg.(*favorite.FavoriteServiceFavoriteVideoListArgs)
+	realResult := result.(*favorite.FavoriteServiceFavoriteVideoListResult)
+	success, err := handler.(favorite.FavoriteService).FavoriteVideoList(ctx, realArg.Req)
+	if err != nil {
+		return err
+	}
+	realResult.Success = success
+	return nil
+}
+func newFavoriteServiceFavoriteVideoListArgs() interface{} {
+	return favorite.NewFavoriteServiceFavoriteVideoListArgs()
+}
+
+func newFavoriteServiceFavoriteVideoListResult() interface{} {
+	return favorite.NewFavoriteServiceFavoriteVideoListResult()
+}
+
 type kClient struct {
 	c client.Client
 }
@@ -144,16 +144,6 @@ func (p *kClient) FavoriteAction(ctx context.Context, req *favorite.FavoriteActi
 	_args.Req = req
 	var _result favorite.FavoriteServiceFavoriteActionResult
 	if err = p.c.Call(ctx, "FavoriteAction", &_args, &_result); err != nil {
-		return
-	}
-	return _result.GetSuccess(), nil
-}
-
-func (p *kClient) FavoriteList(ctx context.Context, req *favorite.FavoriteListRequest) (r *favorite.FavoriteListResponse, err error) {
-	var _args favorite.FavoriteServiceFavoriteListArgs
-	_args.Req = req
-	var _result favorite.FavoriteServiceFavoriteListResult
-	if err = p.c.Call(ctx, "FavoriteList", &_args, &_result); err != nil {
 		return
 	}
 	return _result.GetSuccess(), nil
@@ -184,6 +174,16 @@ func (p *kClient) FavoriteCountOfVideo(ctx context.Context, req *favorite.Favori
 	_args.Req = req
 	var _result favorite.FavoriteServiceFavoriteCountOfVideoResult
 	if err = p.c.Call(ctx, "FavoriteCountOfVideo", &_args, &_result); err != nil {
+		return
+	}
+	return _result.GetSuccess(), nil
+}
+
+func (p *kClient) FavoriteVideoList(ctx context.Context, req *favorite.FavoriteVideoListRequest) (r *favorite.FavoriteVideoListResponse, err error) {
+	var _args favorite.FavoriteServiceFavoriteVideoListArgs
+	_args.Req = req
+	var _result favorite.FavoriteServiceFavoriteVideoListResult
+	if err = p.c.Call(ctx, "FavoriteVideoList", &_args, &_result); err != nil {
 		return
 	}
 	return _result.GetSuccess(), nil

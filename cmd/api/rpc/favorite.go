@@ -97,13 +97,13 @@ func FavoriteCountOfVideo(ctx context.Context, userId int64, videoId int64) (int
 	return resp.FavoritedCount, resp.IsFavorite, nil
 }
 
-func FavoriteList(ctx context.Context, req *favorite.FavoriteListRequest) (*favorite.FavoriteListResponse, error) {
+func FavoriteVideoList(ctx context.Context, req *favorite.FavoriteVideoListRequest) (*favorite.FavoriteVideoListResponse, error) {
 	if favoriteClient == nil {
-		return &favorite.FavoriteListResponse{}, nil
+		return &favorite.FavoriteVideoListResponse{}, nil
 	}
-	resp, err := favoriteClient.FavoriteList(ctx, req)
+	resp, err := favoriteClient.FavoriteVideoList(ctx, req)
 	if err != nil {
-		return &favorite.FavoriteListResponse{}, err
+		return &favorite.FavoriteVideoListResponse{}, err
 	}
 	return resp, nil
 }

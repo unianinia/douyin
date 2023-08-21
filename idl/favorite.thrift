@@ -13,12 +13,12 @@ struct FavoriteActionResponse {
     2: required string status_msg
 }
 
-struct FavoriteListRequest {
+struct FavoriteVideoListRequest {
     1: required i64 user_id
     2: required i64 to_user_id
 }
 
-struct FavoriteListResponse {
+struct FavoriteVideoListResponse {
     1: required i32 status_code
     2: required string status_msg
     3: required list<common.Video> video_list
@@ -54,8 +54,8 @@ struct FavoriteCountOfVideoResponse {
 
 service FavoriteService {
     FavoriteActionResponse FavoriteAction(1: FavoriteActionRequest req)
-    FavoriteListResponse FavoriteList(1: FavoriteListRequest req)
     FavoriteCountResponse FavoriteCount(1: FavoriteCountRequest req)
     FavoriteExistResponse FavoriteExist(1: FavoriteExistRequest req)
     FavoriteCountOfVideoResponse FavoriteCountOfVideo(1: FavoriteCountOfVideoRequest req)
+    FavoriteVideoListResponse FavoriteVideoList(1: FavoriteVideoListRequest req)
 }
