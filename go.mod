@@ -6,6 +6,7 @@ require (
 	github.com/apache/thrift v0.18.1
 	github.com/cloudwego/hertz v0.6.6
 	github.com/cloudwego/kitex v0.6.2
+	github.com/disintegration/imaging v1.6.2
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/hertz-contrib/jwt v1.0.2
 	github.com/kitex-contrib/registry-etcd v0.1.0
@@ -38,7 +39,6 @@ require (
 	github.com/coreos/go-semver v0.3.0 // indirect
 	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
-	github.com/disintegration/imaging v1.6.2 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/go-sql-driver/mysql v1.7.0 // indirect
