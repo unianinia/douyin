@@ -67,6 +67,7 @@ func main() {
 
 	favoriteRouter := router.Group("/favorite", auth.MW.MiddlewareFunc())
 	favoriteRouter.POST("/action/", handlers.FavoriteActionHandler)
+	favoriteRouter.GET("/list/", handlers.FavoriteListHandler)
 
 	commentRouter := router.Group("/comment", auth.MW.MiddlewareFunc())
 	commentRouter.POST("/action/", handlers.CommentActionHandler)

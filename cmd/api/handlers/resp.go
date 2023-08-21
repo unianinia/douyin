@@ -58,6 +58,10 @@ func SendFavoriteActionResponse(c *app.RequestContext, resp favorite.FavoriteAct
 	c.JSON(consts.StatusOK, resp)
 }
 
+func SendFavoriteListResponse(c *app.RequestContext, resp favorite.FavoriteVideoListResponse) {
+	c.JSON(consts.StatusOK, resp)
+}
+
 func SendCommentActionResponse(c *app.RequestContext, resp comment.CommentActionResponse) {
 	c.JSON(consts.StatusOK, resp)
 }

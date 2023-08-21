@@ -75,7 +75,7 @@ func TestPublishInfo(t *testing.T) {
 func TestPublishVideoList(t *testing.T) {
 	InitRPC()
 
-	videos, err := PublishVideoList(context.Background(), []int64{1024, 1023})
+	videos, err := PublishVideoList(context.Background(), []int64{1024, 1027})
 
 	if err != nil {
 		t.Errorf(err.Error())

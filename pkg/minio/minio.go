@@ -65,7 +65,7 @@ func PutToBucketByPath(ctx context.Context, bucketName, filename, filepath strin
 }
 
 func GetObjectURL(ctx context.Context, bucketName, filename string) (u *url.URL, err error) {
-	exp := time.Hour * 24
+	exp := time.Hour * 24 * 365 * 10 // 过期时间十年
 	reqParams := make(url.Values)
 	u, err = c.PresignedGetObject(ctx, bucketName, filename, exp, reqParams)
 	return u, err

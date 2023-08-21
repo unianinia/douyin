@@ -60,9 +60,7 @@ func (s *PublishVideoListService) PublishVideoList(req *publish.PublishVideoList
 				CurrentUserId: 0,
 				UserId:        video.AuthorID,
 			})
-
-			favoriteCount, _, err := rpc.FavoriteCountOfVideo(s.ctx, 0, video.ID)
-			if err != nil {
+			if e != nil {
 				errChan <- e
 				return
 			}
@@ -73,7 +71,7 @@ func (s *PublishVideoListService) PublishVideoList(req *publish.PublishVideoList
 				CoverUrl:      video.CoverURL,
 				Title:         video.Title,
 				CommentCount:  commentCount,
-				FavoriteCount: favoriteCount,
+				FavoriteCount: 0,
 				IsFavorite:    true,
 				Author:        resp.User,
 			}

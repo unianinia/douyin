@@ -40,5 +40,12 @@ func (s *FavoriteVideoListService) FavoriteVideoList(req *favorite.FavoriteVideo
 		return nil, err
 	}
 
+	for i := 0; i < len(videos); i++ {
+		videos[i].FavoriteCount, err = db.GetVideoFavoritedCount(s.ctx, videos[i].Id)
+		if err != nil {
+			return nil, err
+		}
+	}
+
 	return videos, nil
 }

@@ -322,7 +322,7 @@ func MessageListHandler(ctx context.Context, c *app.RequestContext) {
 }
 
 func FavoriteActionHandler(ctx context.Context, c *app.RequestContext) {
-	var FavoriteVar FavoriteActionParam
+	var FavoriteActionVar FavoriteActionParam
 
 	claims := jwt.ExtractClaims(ctx, c)
 	videoId, err := strconv.Atoi(c.Query("video_id"))
@@ -335,19 +335,42 @@ func FavoriteActionHandler(ctx context.Context, c *app.RequestContext) {
 		return
 	}
 
-	FavoriteVar.UserId = int64(claims[constants.IdentityKey].(float64))
-	FavoriteVar.VideoId = int64(videoId)
-	FavoriteVar.ActionType = int32(action)
+	FavoriteActionVar.UserId = int64(claims[constants.IdentityKey].(float64))
+	FavoriteActionVar.VideoId = int64(videoId)
+	FavoriteActionVar.ActionType = int32(action)
 
 	resp, _ := rpc.FavoriteAction(ctx, &favorite.FavoriteActionRequest{
-		UserId:     FavoriteVar.UserId,
-		VideoId:    FavoriteVar.VideoId,
-		ActionType: FavoriteVar.ActionType,
+		UserId:     FavoriteActionVar.UserId,
+		VideoId:    FavoriteActionVar.VideoId,
+		ActionType: FavoriteActionVar.ActionType,
 	})
 	SendFavoriteActionResponse(c, favorite.FavoriteActionResponse{
 		StatusCode: resp.StatusCode,
 		StatusMsg:  resp.StatusMsg,
 	})
+}
+
+func FavoriteListHandler(ctx context.Context, c *app.RequestContext) {
+	var FavoriteListVar FavoriteListParam
+
+	claims := jwt.ExtractClaims(ctx, c)
+	userId, err := strconv.Atoi(c.Query("user_id"))
+	if err != nil {
+		SendFavoriteActionResponse(c, favorite.FavoriteActionResponse{
+			StatusCode: errno.ParamErrCode,
+			StatusMsg:  errno.ParamErrMsg,
+		})
+		return
+	}
+
+	FavoriteListVar.CurrentUserId = int64(claims[constants.IdentityKey].(float64))
+	FavoriteListVar.ToUserId = int64(userId)
+
+	resp, _ := rpc.FavoriteVideoList(ctx, &favorite.FavoriteVideoListRequest{
+		UserId:   FavoriteListVar.CurrentUserId,
+		ToUserId: FavoriteListVar.ToUserId,
+	})
+	SendFavoriteListResponse(c, *resp)
 }
 
 func UserInfoHandler(ctx context.Context, c *app.RequestContext) {
